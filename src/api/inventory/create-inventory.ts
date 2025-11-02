@@ -35,8 +35,8 @@ export const useCreateInventory = () => {
     ) => createInventory(inventory),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["inventories"] });
-      toast.success("Inventory deleted successfully");
-      navigate("/inventory");
+      toast.success("Inventory created successfully");
+      navigate("/inventory", { replace: true });
     },
   });
 

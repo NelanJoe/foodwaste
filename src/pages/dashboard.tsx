@@ -48,21 +48,21 @@ export default function Dashboard() {
       <div className="space-y-3">
         <p>Tools pilihan</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-center justify-between">
-          <Link to="/recommendation">
+          <Link to="/recommendation" preventScrollReset={true}>
             <div className="shadow p-2 rounded-md md:w-[120px] md:h-[120px] flex items-end justify-center hover:shadow-md transition-all duration-150">
               <p className="text-xs text-center text-slate-500">
                 Rekomendasi Menu Pilihan
               </p>
             </div>
           </Link>
-          <Link to="/sales">
+          <Link to="/sales" preventScrollReset={true}>
             <div className="shadow p-2 rounded-md md:w-[120px] md:h-[120px] flex items-end justify-center hover:shadow-md transition-all duration-150">
               <p className="text-xs text-center text-slate-500">
                 Belanja Mingguan
               </p>
             </div>
           </Link>
-          <Link to="/inventory">
+          <Link to="/inventory" preventScrollReset={true}>
             <div className="shadow p-2 rounded-md md:w-[120px] md:h-[120px] flex items-end justify-center hover:shadow-md transition-all duration-150">
               <p className="text-xs text-center text-slate-500">
                 Inventori Kamu

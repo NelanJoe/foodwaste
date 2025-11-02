@@ -8,7 +8,11 @@ export default function Recommendation() {
   return (
     <section className="space-y-5">
       <div className="flex items-center space-x-3">
-        <Button variant="outline" size="icon" onClick={() => navigate("/")}>
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => navigate("/", { preventScrollReset: true })}
+        >
           <Icon icon="mynaui:arrow-left" />
         </Button>
         <p>Rekomendasi menu</p>

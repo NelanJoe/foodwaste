@@ -42,7 +42,7 @@ export default function InventoryNew() {
     defaultValues: {
       name: "",
       store_at: "chiller",
-      weight: "",
+      weight: "0",
       unit: "",
       expired_at: "",
       photo: "https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg",
@@ -70,53 +70,52 @@ export default function InventoryNew() {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
             <FormField
               control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Name" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name="photo"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Photo Url</FormLabel>
                   <FormControl>
-                    <Input
-                      type="url"
-                      placeholder="https://api.dicebear.com/9.x/initials/svg?seed=Felix"
-                      disabled
-                      {...field}
-                    />
+                    <Input id="photo" {...field} disabled />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
             <FormField
               control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nama Barang</FormLabel>
+                  <FormControl>
+                    <Input id="name" placeholder="Nama Barang" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
               name="store_at"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Store At</FormLabel>
+                  <FormLabel>Penyimpanan</FormLabel>
                   <FormControl>
                     <Select value={field.value} onValueChange={field.onChange}>
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select a Store Location" />
+                        <SelectValue placeholder="Pilih penyimpanan" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
-                          <SelectLabel>Store Location</SelectLabel>
+                          <SelectLabel>Penyimpanan</SelectLabel>
                           <SelectItem value="chiller">Chiller</SelectItem>
                           <SelectItem value="freezer">Freezer</SelectItem>
                         </SelectGroup>
                       </SelectContent>
                     </Select>
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -125,7 +124,7 @@ export default function InventoryNew() {
               name="weight"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Weight</FormLabel>
+                  <FormLabel>Bobot</FormLabel>
                   <FormControl>
                     <Input type="number" {...field} />
                   </FormControl>
@@ -138,10 +137,22 @@ export default function InventoryNew() {
               name="unit"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Unit</FormLabel>
+                  <FormLabel>Satuan</FormLabel>
                   <FormControl>
-                    <Input placeholder="unit" {...field} />
+                    <Select value={field.value} onValueChange={field.onChange}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Pilih satuan" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <SelectLabel>Satuan</SelectLabel>
+                          <SelectItem value="gram">Gram</SelectItem>
+                          <SelectItem value="kilogram">Kilogram</SelectItem>
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -154,6 +165,7 @@ export default function InventoryNew() {
                   <FormControl>
                     <Input type="date" {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />

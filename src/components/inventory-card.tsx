@@ -17,7 +17,12 @@ export default function InventoryCard({ inventory }: { inventory: Inventory }) {
             className="rounded-t-lg w-full h-[120px] object-cover"
           />
         </div>
-        <div className="space-y-2 p-3">
+        <div className="space-y-2 p-3.5">
+          <div>
+            <h2 className="capitalize font-semibold text-lg leading-relaxed">
+              {inventory.name}
+            </h2>
+          </div>
           <div className="flex gap-2">
             <Icon icon="mynaui:hash-square" />
             <p className="text-sm">

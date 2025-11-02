@@ -21,7 +21,7 @@ export default function InventoryId() {
           <Button
             variant="outline"
             size="icon"
-            onClick={() => navigate("/inventory")}
+            onClick={() => navigate("/inventory", { preventScrollReset: true })}
           >
             <Icon icon="mynaui:arrow-left" />
           </Button>

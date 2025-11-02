@@ -7,7 +7,11 @@ export default function Header() {
   return (
     <header className="max-w-md mx-auto px-4 py-10">
       <nav className="flex items-center justify-between">
-        <Link to="/" className="font-semibold text-xl ">
+        <Link
+          to="/"
+          preventScrollReset={true}
+          className="font-semibold text-xl "
+        >
           Food Waste
         </Link>
         <div className="flex items-center gap-4">
@@ -16,12 +20,10 @@ export default function Header() {
               <BellIcon className="size-3.5" />
             </Link>
           </Button>
-          <Link to="/">
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-          </Link>
+          <Avatar>
+            <AvatarImage src="https://api.dicebear.com/9.x/notionists/svg?backgroundColor=b6e3f4,c0aede,d1d4f9" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
         </div>
       </nav>
     </header>

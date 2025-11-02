@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 const BASE_URL = "http://fajarseptianto.my.id/api/items";
 
@@ -19,16 +19,17 @@ export const deleteInventory = async (inventoryId: number) => {
 };
 
 export const useDeleteInventory = () => {
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
+
+  const navigate = useNavigate();
 
   const { mutate, isPending } = useMutation({
     mutationKey: ["delete-inventory"],
     mutationFn: (inventoryId: number) => deleteInventory(inventoryId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["inventories"] });
-      toast.success("Inventory created successfully");
-      navigate("/inventory");
+      toast.success("Inventory deleted successfully");
+      navigate("/inventory", { replace: true });
     },
   });
 
