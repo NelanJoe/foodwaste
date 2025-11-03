@@ -59,7 +59,10 @@ export default function Inventory() {
             className="p-2 shadow-md rounded-md flex items-center justify-center border-2 border-dashed w-full h-full"
             asChild
           >
-            <Link to="/inventory/new">
+            <Link
+              to="/inventory/new"
+              className="w-full inline-flex items-center justify-center space-x-2"
+            >
               <Icon icon="mynaui:plus" />
               <p>Tambah barang</p>
             </Link>

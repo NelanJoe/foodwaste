@@ -43,7 +43,7 @@ export default function InventoryNew() {
       name: "",
       store_at: "chiller",
       weight: "0",
-      unit: "",
+      unit: "gram",
       expired_at: "",
       photo: "https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg",
     },

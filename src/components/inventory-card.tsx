@@ -43,7 +43,7 @@ export default function InventoryCard({ inventory }: { inventory: Inventory }) {
             </p>
           </div>
           <div className="flex gap-2">
-            <Icon icon="mynaui:store" />
+            <Icon icon="mynaui:package" />
             <p className="text-sm">Stored at: {inventory.store_at}</p>
           </div>
           <div className="flex gap-2">

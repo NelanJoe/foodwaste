@@ -58,7 +58,7 @@ export default function InventoryId() {
               <img
                 src={inventory.photo}
                 alt={inventory.name}
-                className="rounded-md"
+                className="rounded-md w-full"
               />
             </div>
             <div className="flex items-center justify-between">
@@ -74,7 +74,7 @@ export default function InventoryId() {
                 </p>
               </div>
               <div className="space-y-2 shadow p-2 rounded-md w-full">
-                <Icon icon="mynaui:store" />
+                <Icon icon="mynaui:package" />
                 <p className="text-xs">Stored at: {inventory.store_at}</p>
               </div>
               <div className="space-y-2 shadow p-2 rounded-md w-full">
