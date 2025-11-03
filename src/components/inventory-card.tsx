@@ -1,10 +1,23 @@
 import { Link } from "react-router";
+import { useQueryClient } from "@tanstack/react-query";
 import { Icon } from "@iconify/react";
+import { fetchInventory } from "@/api/inventory/get-inventories";
 import type { Inventory } from "@/types/inventory";
 
 export default function InventoryCard({ inventory }: { inventory: Inventory }) {
+  const queryClient = useQueryClient();
+
   return (
-    <Link to={`/inventory/${inventory.id}`}>
+    <Link
+      to={`/inventory/${inventory.id}`}
+      onMouseEnter={async () => {
+        await queryClient.prefetchQuery({
+          queryKey: ["inventory", inventory.id],
+          queryFn: () => fetchInventory(Number(inventory.id)),
+          staleTime: 10 * 100,
+        });
+      }}
+    >
       <div className="shadow rounded-md space-y-3.5">
         <div>
           <img

@@ -6,8 +6,9 @@ import Dashboard from "@/pages/dashboard";
 import Recommendation from "@/pages/recommendation";
 import Sales from "@/pages/sales";
 import Inventory from "@/pages/inventory";
-import InventoryNew from "@/pages/inventory-new";
 import InventoryId from "@/pages/inventory-id";
+import InventoryNew from "@/pages/inventory-new";
+import InventoryEdit from "@/pages/inventory-edit";
 import Notifications from "@/pages/notifications";
 import NotFound from "@/pages/not-found";
 
@@ -23,6 +24,7 @@ export default function App() {
             <Route index element={<Inventory />} />
             <Route path="new" element={<InventoryNew />} />
             <Route path=":inventoryId" element={<InventoryId />} />
+            <Route path=":inventoryId/edit" element={<InventoryEdit />} />
           </Route>
           <Route path="notifications" element={<Notifications />} />
           <Route path="*" element={<NotFound />} />

@@ -31,6 +31,9 @@ export const useDeleteInventory = () => {
       toast.success("Inventory deleted successfully");
       navigate("/inventory", { replace: true });
     },
+    onError: () => {
+      toast.error("Failed to delete inventory");
+    },
   });
 
   return {

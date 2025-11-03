@@ -9,12 +9,17 @@ export const createInventory = async (
   inventory: Omit<Inventory, "id" | "created_at" | "updated_at">
 ) => {
   try {
+    const created_at = new Date().toISOString();
+
     const res = await fetch(`${BASE_URL}/inventory`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(inventory),
+      body: JSON.stringify({
+        ...inventory,
+        created_at,
+      }),
     });
     const data = await res.json();
     return data;
@@ -37,6 +42,9 @@ export const useCreateInventory = () => {
       queryClient.invalidateQueries({ queryKey: ["inventories"] });
       toast.success("Inventory created successfully");
       navigate("/inventory", { replace: true });
+    },
+    onError: () => {
+      toast.error("Failed to create inventory");
     },
   });
 

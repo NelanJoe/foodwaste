@@ -28,7 +28,10 @@ export default function InventoryId() {
           <p className="capitalize">{inventory && inventory.name}</p>
         </div>
         <ButtonGroup aria-label="action button">
-          <Button variant="outline">
+          <Button
+            variant="outline"
+            onClick={() => navigate(`/inventory/${params.inventoryId}/edit`)}
+          >
             <EditIcon className="size-3 text-teal-500" />
           </Button>
           <Button
